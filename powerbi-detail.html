@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Power BI Results Dashboard Mock</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+		rel="stylesheet"
+	/>
+	<link rel="stylesheet" href="powerbi-mock.css" />
+</head>
+<body>
+	<div class="pb-shell">
+		<aside class="pb-sidebar">
+			<div class="pb-brand">BYU-Idaho</div>
+			<div class="pb-portal">Faculty Development Portal</div>
+			<nav class="pb-nav">
+				<button class="pb-nav-item">End of Course Survey</button>
+				<button class="pb-nav-item active">Details</button>
+				<button class="pb-nav-item">Survey Questions List</button>
+				<button class="pb-nav-item">Data Definitions</button>
+			</nav>
+			<a class="pb-back" href="powerbi-mock.html">Go back</a>
+		</aside>
+
+		<main class="pb-main">
+			<header class="pb-top">
+				<div class="pb-title">Faculty Development Portal | End of Course Survey Details</div>
+				<a class="pb-next" href="powerbi-mock.html">< Dashboard</a>
+			</header>
+
+			<section class="pb-detail-page">
+				<section class="pb-detail-top">
+					<article class="pb-card pb-hero-card">
+						<h2 id="detailCourseTitle">Writing and Reasoning Foundations</h2>
+						<p id="detailCourseMeta">ENG 150-01 | Fall 2025</p>
+						<div class="pb-hero-grid">
+							<div class="pb-key">
+								<h4>Key</h4>
+								<div class="pb-key-row"><span class="pb-key-dot blue"></span><span>4.50 - 5.00 | Exemplary</span></div>
+								<div class="pb-key-row"><span class="pb-key-dot green"></span><span>4.00 - 4.49 | Proficient</span></div>
+								<div class="pb-key-row"><span class="pb-key-dot yellow"></span><span>3.50 - 3.99 | Developing</span></div>
+								<div class="pb-key-row"><span class="pb-key-dot red"></span><span>Below 3.50 | Concern</span></div>
+							</div>
+							<div class="pb-participation">
+								<h4>Student Participation</h4>
+								<div class="pb-participation-item"><strong id="detailEnrolled">35</strong><span>Total Enrolled</span></div>
+								<div class="pb-participation-item"><strong id="detailResponses">18</strong><span>Total Responses</span></div>
+								<div class="pb-participation-item"><strong id="detailResponseRate">51.42%</strong><span>Response %</span></div>
+							</div>
+							<div class="pb-hero-scores">
+								<h4>End of Course Participation</h4>
+								<div class="pb-hero-score-item"><strong id="detailDisciple">3.7</strong><span>Developing Disciples Avg</span></div>
+								<div class="pb-hero-score-item"><strong id="detailTeach">4.1</strong><span>Effective Teaching Avg</span></div>
+								<div class="pb-hero-score-item"><strong id="detailDesign">4.0</strong><span>Course Design Avg</span></div>
+							</div>
+						</div>
+					</article>
+
+					<article class="pb-card pb-chart-card">
+						<h3>End of Course Survey Metrics by Term</h3>
+						<div class="pb-chart-tabs">
+							<span>Developing Disciples Avg</span>
+							<span>Effective Teaching Avg</span>
+							<span>Course Design Avg</span>
+						</div>
+						<div class="pb-chart-grid">
+							<div class="pb-chart-dot"></div>
+						</div>
+						<p class="pb-chart-note">The visual above will show historical trend lines for each category as historical data becomes available.</p>
+					</article>
+				</section>
+
+				<article class="pb-card pb-metrics-card">
+					<div class="pb-metric-left">
+						<h3>Developing Disciples</h3>
+						<div class="pb-pill-status developing">Developing</div>
+						<div class="pb-metric-big">3.8</div>
+						<div class="pb-metric-label">Metric Average</div>
+					</div>
+					<div>
+						<div class="pb-question-table">
+							<div class="pb-question-row header"><span>Item</span><span>Item</span><span>Question Text</span><span>Response Avg</span><span>Course Avg</span><span>Dept Avg</span></div>
+							<div class="pb-question-row"><span>DEVELOPING</span><span>Acts in the Prophetic</span><span>How well did your instructor bear testimony with a focus on gospel-centered learning?</span><span>3.8</span><span>3.8</span><span>4.1</span></div>
+							<div class="pb-question-row"><span></span><span>Care & Kindness</span><span>How well did your instructor create a positive environment?</span><span>4.0</span><span>4.0</span><span>4.0</span></div>
+							<div class="pb-question-row"><span></span><span>Encourage Spirit</span><span>How well did they invite students to seek personal revelation?</span><span>4.0</span><span>4.0</span><span>3.9</span></div>
+							<div class="pb-question-row total"><span>Total</span><span></span><span></span><span>3.8</span><span>3.8</span><span>3.8</span></div>
+						</div>
+					</div>
+				</article>
+
+				<article class="pb-card pb-metrics-card">
+					<div class="pb-metric-left">
+						<h3>Effective Teaching</h3>
+						<div class="pb-pill-status proficient">Proficient</div>
+						<div class="pb-metric-big">4.0</div>
+						<div class="pb-metric-label">Metric Average</div>
+					</div>
+					<div>
+						<div class="pb-question-table">
+							<div class="pb-question-row header"><span>Item</span><span>Item</span><span>Question Text</span><span>Response Avg</span><span>Course Avg</span><span>Dept Avg</span></div>
+							<div class="pb-question-row"><span>PROFICIENT</span><span>Audibly Engaged</span><span>How well did the instructor engage students in active learning?</span><span>4.1</span><span>4.1</span><span>4.0</span></div>
+							<div class="pb-question-row"><span></span><span>Challenge</span><span>How well did this course challenge you to think deeper?</span><span>4.2</span><span>4.2</span><span>4.2</span></div>
+							<div class="pb-question-row"><span></span><span>Evaluate & Improve</span><span>How well did the instructor use feedback to improve learning?</span><span>3.8</span><span>4.0</span><span>3.8</span></div>
+							<div class="pb-question-row total"><span>Total</span><span></span><span></span><span>4.0</span><span>4.0</span><span>4.0</span></div>
+						</div>
+					</div>
+				</article>
+
+				<article class="pb-card pb-metrics-card">
+					<div class="pb-metric-left">
+						<h3>Course Design</h3>
+						<div class="pb-pill-status developing">Developing</div>
+						<div class="pb-metric-big">3.7</div>
+						<div class="pb-metric-label">Metric Average</div>
+					</div>
+					<div>
+						<div class="pb-question-table">
+							<div class="pb-question-row header"><span>Item</span><span>Item</span><span>Question Text</span><span>Response Avg</span><span>Course Avg</span><span>Dept Avg</span></div>
+							<div class="pb-question-row"><span>DEVELOPING</span><span>Clear Expectations</span><span>How clear were learning outcomes and assignment expectations?</span><span>4.2</span><span>4.0</span><span>4.2</span></div>
+							<div class="pb-question-row"><span></span><span>Course Organized</span><span>How well was the course organized and sequenced?</span><span>3.6</span><span>3.6</span><span>4.0</span></div>
+							<div class="pb-question-row"><span></span><span>Grading Timely</span><span>How well were grades and feedback returned in time to help you learn?</span><span>3.4</span><span>3.6</span><span>3.9</span></div>
+							<div class="pb-question-row total"><span>Total</span><span></span><span></span><span>3.7</span><span>3.7</span><span>4.0</span></div>
+						</div>
+						<div class="pb-help">How to Use Survey Results</div>
+					</div>
+				</article>
+
+				<article class="pb-card pb-open-ended">
+					<h3>Open-Ended Questions</h3>
+					<div class="pb-open-grid">
+						<div class="pb-open-row header"><span>Question Avg</span><span>What helped your learning in this course?</span><span>What suggestions do you have to improve this course?</span></div>
+						<div class="pb-open-row"><span>4.2</span><span>Fast feedback and clear weekly routine.</span><span>More examples before the larger projects.</span></div>
+						<div class="pb-open-row"><span>3.9</span><span>Instructor provided practical examples and mentoring.</span><span>Clarify rubric language in week 2.</span></div>
+						<div class="pb-open-row"><span>4.1</span><span>Course pacing and organization helped a lot.</span><span>Add one more applied activity before the midterm.</span></div>
+						<div class="pb-open-row"><span>4.0</span><span>Helpful discussion prompts and follow-up feedback.</span><span>Reduce overlap between reading and videos.</span></div>
+					</div>
+				</article>
+
+				<article class="pb-card pb-custom-questions">
+					<h3>Custom Questions for Campus Faculty</h3>
+					<div class="pb-question-table">
+						<div class="pb-question-row header"><span></span><span>Custom Question</span><span>Response</span><span></span><span></span><span></span></div>
+						<div class="pb-custom-empty">No responses yet for custom prompts in this term.</div>
+					</div>
+				</article>
+			</section>
+		</main>
+	</div>
+
+	<script src="powerbi-detail.js"></script>
+</body>
+</html>

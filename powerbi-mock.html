@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Power BI Faculty Detail Mock</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+		rel="stylesheet"
+	/>
+	<link rel="stylesheet" href="powerbi-mock.css" />
+</head>
+<body>
+	<div class="pb-shell">
+		<aside class="pb-sidebar">
+			<div class="pb-brand">BYU-Idaho</div>
+			<div class="pb-portal">Faculty Development Portal</div>
+			<nav class="pb-nav">
+				<button class="pb-nav-item">End of Course Survey</button>
+				<button class="pb-nav-item active">Details</button>
+				<button class="pb-nav-item">Survey Questions List</button>
+				<button class="pb-nav-item">Data Definitions</button>
+			</nav>
+			<button class="pb-back">Go back</button>
+		</aside>
+
+		<main class="pb-main">
+			<header class="pb-top">
+				<div class="pb-title">Faculty Development Portal | End of Course Survey Details</div>
+				<a class="pb-next" href="powerbi-detail.html">Next Page ></a>
+			</header>
+
+			<section class="pb-overview-grid">
+				<article class="pb-card pb-table-card">
+					<h1 class="pb-faculty">Balls, Daniel</h1>
+					<p class="pb-role">Full-Time Faculty Member</p>
+					<div class="pb-table-wrap">
+						<div class="pb-table-head">
+							<span>Term</span>
+							<span>Department</span>
+							<span>Course</span>
+							<span>Section</span>
+							<span>Developing Disciples</span>
+							<span>Teaching</span>
+							<span>Course Design</span>
+							<span></span>
+						</div>
+						<div class="pb-rows" id="pbRows"></div>
+					</div>
+				</article>
+
+				<article class="pb-card pb-detail-card" id="pbDetail">
+					<div class="pb-detail-inner">
+						<h3 id="pbCourseTitle">Select a course</h3>
+						<p id="pbCourseMeta">Data preview will display upon selection.</p>
+						<div class="pb-score" id="pbScore">-</div>
+						<div class="pb-band" id="pbBand">No Selection</div>
+						<div class="pb-stat-grid">
+							<div><strong id="pbEnroll">-</strong><span>Total Enrolled</span></div>
+							<div><strong id="pbResponses">-</strong><span>Response Total</span></div>
+							<div><strong id="pbRate">-</strong><span>Response %</span></div>
+						</div>
+						<a class="pb-detail-btn" id="pbDetailPageBtn" href="powerbi-detail.html">Details & Responses</a>
+					</div>
+				</article>
+			</section>
+		</main>
+	</div>
+
+	<script src="powerbi-mock.js"></script>
+</body>
+</html>
