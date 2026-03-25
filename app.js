@@ -237,7 +237,7 @@ function renderCourseOverviewMini() {
 				</div>
 				<a class="mini-overview-btn" href="powerbi-detail.html">Details & Responses</a>
 			</aside>
-			<a class="mini-course-btn" href=powerbi-mock.html">All Courses</a>
+			<a class="mini-course-btn" href="powerbi-mock.html">All Courses</a>
 		</div>
 	`;
 }
