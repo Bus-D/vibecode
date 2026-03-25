@@ -123,7 +123,7 @@ const courseOverviewRows = [
 		disciples: 4.4,
 		teaching: 4.8,
 		design: 3.9,
-		title: "Advanced Composition",
+		title: "Advanced Creative Writing",
 		meta: "ENG 318R-01 | Fall 2025",
 		enrolled: 28,
 		responses: 14,
@@ -235,7 +235,9 @@ function renderCourseOverviewMini() {
 					<div><strong>${selected.responses}</strong><span>Responses</span></div>
 					<div><strong>${selected.responseRate.toFixed(2)}</strong><span>Response %</span></div>
 				</div>
+				<a class="mini-overview-btn" href="powerbi-detail.html">Details & Responses</a>
 			</aside>
+			<a class="mini-course-btn" href=powerbi-mock.html">All Courses</a>
 		</div>
 	`;
 }

@@ -37,7 +37,7 @@ const powerBiRows = [
 		disciples: 4.4,
 		teaching: 4.8,
 		design: 3.9,
-		title: "Advanced Composition",
+		title: "Advanced Creative Writing",
 		meta: "ENG 318R-01 | Fall 2025",
 		enrolled: 28,
 		responses: 14,
