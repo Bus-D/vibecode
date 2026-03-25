@@ -207,11 +207,10 @@ function renderCourseOverviewMini() {
 				</div>
 				<div class="mini-overview-rows">
 					${courseOverviewRows
-						.map(
-							(row) => `
-							<div class="mini-overview-row ${
-								row.id === selected.id ? "selected" : ""
-							}">
+			.map(
+				(row) => `
+							<div class="mini-overview-row ${row.id === selected.id ? "selected" : ""
+					}">
 								<span>${row.term}</span>
 								<span>${row.course}</span>
 								<span>${row.section}</span>
@@ -221,8 +220,8 @@ function renderCourseOverviewMini() {
 								<button class="mini-overview-btn" data-course-id="${row.id}">Overview</button>
 							</div>
 						`
-						)
-						.join("")}
+			)
+			.join("")}
 				</div>
 			</div>
 			<aside class="mini-overview-detail">
@@ -247,14 +246,14 @@ function renderWidgetBody(type, isFixed) {
 		return `
 			<div class="resources-list">
 				${[
-					"Peer Observation Form",
-					"SCOT",
-					"Consultation With a Curriculum Designer",
-					"Consultation With Assessment Consultant",
-					"Learning and Teaching Website"
-				]
-					.map(
-						(item, index) => `
+				"Peer Observation Form",
+				"SCOT",
+				"Consultation With a Curriculum Designer",
+				"Consultation With Assessment Consultant",
+				"Learning and Teaching Website"
+			]
+				.map(
+					(item, index) => `
 						<div class="resource-item ${index === 0 ? "open" : ""}">
 							<button class="resource-toggle" type="button">
 								<span>${item}</span>
@@ -262,8 +261,8 @@ function renderWidgetBody(type, isFixed) {
 							</button>
 							<div class="resource-content">Access this resource from the faculty support library.</div>
 						</div>`
-					)
-					.join("")}
+				)
+				.join("")}
 			</div>
 		`;
 	}
@@ -288,13 +287,50 @@ function renderWidgetBody(type, isFixed) {
 	}
 
 	if (type === "mentorship") {
-		return "<p class='widget-copy'>Track mentoring check-ins and support plans for your assigned students this term.</p>";
+		return `
+		<div class="layout">
+			<div class="overview">	
+				<div class="progress-circle">
+					<span>50%</span>
+				</div>
+				<div class="information">
+					<h3 class="overview-label">Mentorship Progress</h3>
+					<h4 class="subtitle">25/50 Student Met</h4>
+					<p class='widget-copy'>Track mentoring check-ins and support plans for your assigned students this term. Reach out to your students to get to know them better.</p>
+				</div>
+			</div>
+		</div>
+		${isFixed ? "" : "<div class='card-footer'><button class='mini-pill'>See Student List</button></div>"}`
 	}
 
 	if (type === "goals") {
 		return `
-			<p class="widget-copy-tight">Integrate scripture into the Economics 110 course.</p>
-			<p class="widget-subcopy">15 / 50 completed (30%)</p>
+			<div class="layout">
+				<div class="overview">
+					<div class="progress-circle">
+						<span>50%</span>
+					</div>
+					<div class="information">
+						<h3 class="overview-label">Evaluation Progress</h3>
+						<p class="status-details">3/3 Reflect On Your Goals</p>
+						<p class="status-details">1/3 Analyze Student Feedback</p>
+						<p class="status-details">4/5 Review Learning Outcomes</p>
+					</div>
+				</div>
+
+				<div class="goals-list">
+					<div class="goal-item">
+						<h4>Goal 1: Integrate Scripture into the Economics 110 Course</h4>
+						<p>30% | 15 / 50 completed</p>
+					</div>
+
+					<div class="goal-item">
+						<h4>Goal 2: Get To Know Your Student Mentees</h4>
+						<p>50% | 25 / 50 completed</p>
+					</div>
+				</div>
+			</div>
+
 			${isFixed ? "" : "<div class='card-footer'><button class='mini-pill'>Update</button></div>"}
 		`;
 	}
@@ -323,7 +359,7 @@ function renderFixedWidgets() {
 			const footer =
 				widget.type === "courseOverview"
 					? ""
-					: "<div class=\"card-footer\"><button class=\"mini-pill\">button</button></div>";
+					: "<div class=\"card-footer\"><button class=\"mini-pill\">Details</button></div>";
 			return `
 				<article class="card fixed ${fixedClass}">
 					<h2 class="widget-title">${spec.title}</h2>
