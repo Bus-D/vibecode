@@ -300,14 +300,24 @@ body {
 	font-size: 1rem;
 	line-height: 1.1;
 	grid-row: 1;
-	/* margin-bottom: 8px; */
 }
 
 .mini-overview-detail p {
 	font-size: 0.74rem;
 	color: #4f5866;
 	grid-row: 2;
-	/* margin-bottom: 16px; */
+}
+
+.mini-overview-empty {
+	grid-row: 1 / 7;
+	display: grid;
+	place-items: center;
+	text-align: center;
+	font-size: 0.86rem;
+	font-weight: 500;
+	color: #5b6270;
+	text-transform: uppercase;
+	letter-spacing: 0.02em;
 }
 
 .mini-score {

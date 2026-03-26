@@ -46,7 +46,7 @@ const state = {
 		name: "Daniel",
 		role: "faculty"
 	},
-	selectedCourseOverviewId: "ENG150-01",
+	selectedCourseOverviewId: null,
 	widgets: [
 		{
 			id: "goals",
@@ -184,8 +184,8 @@ function getCustomWidgets() {
 }
 
 function renderCourseOverviewMini() {
-	const selected =
-		courseOverviewRows.find((row) => row.id === state.selectedCourseOverviewId) || courseOverviewRows[0];
+	const selected = courseOverviewRows.find((row) => row.id === state.selectedCourseOverviewId) || null;
+	const hasSelection = Boolean(selected);
 
 	return `
 		<div class="mini-overview">
@@ -203,7 +203,7 @@ function renderCourseOverviewMini() {
 					${courseOverviewRows
 			.map(
 				(row) => `
-							<div class="mini-overview-row ${row.id === selected.id ? "selected" : ""
+							<div class="mini-overview-row ${selected && row.id === selected.id ? "selected" : ""
 					}">
 								<span>${row.term}</span>
 								<span>${row.course}</span>
@@ -219,16 +219,22 @@ function renderCourseOverviewMini() {
 				</div>
 			</div>
 			<aside class="mini-overview-detail">
-				<h4>${selected.title}</h4>
-				<p>${selected.meta}</p>
-				<div class="mini-score">${selected.disciples.toFixed(1)}</div>
-				<div class="mini-band ${selected.band === "Proficient" ? "proficient" : "developing"}">${selected.band}</div>
-				<div class="mini-stats">
-					<div><strong>${selected.enrolled}</strong><span>Total</span></div>
-					<div><strong>${selected.responses}</strong><span>Responses</span></div>
-					<div><strong>${selected.responseRate.toFixed(2)}</strong><span>Response %</span></div>
-				</div>
-				<a class="mini-overview-btn" href="powerbi-detail.html">Details & Responses</a>
+				${
+					hasSelection
+						? `
+					<h4>${selected.title}</h4>
+					<p>${selected.meta}</p>
+					<div class="mini-score">${selected.disciples.toFixed(1)}</div>
+					<div class="mini-band ${selected.band === "Proficient" ? "proficient" : "developing"}">${selected.band}</div>
+					<div class="mini-stats">
+						<div><strong>${selected.enrolled}</strong><span>Total</span></div>
+						<div><strong>${selected.responses}</strong><span>Responses</span></div>
+						<div><strong>${selected.responseRate.toFixed(2)}</strong><span>Response %</span></div>
+					</div>
+					<a class="mini-overview-btn" href="powerbi-detail.html">Details & Responses</a>
+				`
+						: '<div class="mini-overview-empty">select a course to show data</div>'
+				}
 			</aside>
 			<a class="mini-course-btn" href="powerbi-mock.html">All Courses</a>
 		</div>
@@ -598,6 +604,7 @@ hamburgerBtn.addEventListener('click', () => {
 
 resetMenuBtn.addEventListener('click', () => {
 	state.widgets = JSON.parse(JSON.stringify(resetWidgets));
+	state.selectedCourseOverviewId = null;
 	normalizePositions();
 	menuPopout.classList.remove('show');
 	menuPopout.setAttribute('aria-hidden', 'true');

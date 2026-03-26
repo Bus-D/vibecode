@@ -47,6 +47,7 @@ const powerBiRows = [
 ];
 
 const pbRows = document.getElementById("pbRows");
+const pbDetail = document.getElementById("pbDetail");
 const pbCourseTitle = document.getElementById("pbCourseTitle");
 const pbCourseMeta = document.getElementById("pbCourseMeta");
 const pbScore = document.getElementById("pbScore");
@@ -56,7 +57,7 @@ const pbResponses = document.getElementById("pbResponses");
 const pbRate = document.getElementById("pbRate");
 const pbDetailPageBtn = document.getElementById("pbDetailPageBtn");
 
-let selectedRowIndex = 0;
+let selectedRowIndex = null;
 
 function renderPbRows(selectedIndex = null) {
 	pbRows.innerHTML = powerBiRows
@@ -88,6 +89,7 @@ function renderPbRows(selectedIndex = null) {
 function selectRow(index) {
 	const row = powerBiRows[index];
 	selectedRowIndex = index;
+	pbDetail.classList.add("has-selection");
 	pbCourseTitle.textContent = row.title;
 	pbCourseMeta.textContent = row.meta;
 	pbScore.textContent = row.disciples.toFixed(1);
@@ -103,20 +105,12 @@ function selectRow(index) {
 
 if (pbDetailPageBtn) {
 	pbDetailPageBtn.addEventListener("click", () => {
+		if (selectedRowIndex === null) {
+			return;
+		}
 		const selected = powerBiRows[selectedRowIndex];
 		localStorage.setItem("selectedCourseData", JSON.stringify(selected));
 	});
 }
 
-const savedCourse = localStorage.getItem("selectedCourseData");
-if (savedCourse) {
-	const parsed = JSON.parse(savedCourse);
-	const index = powerBiRows.findIndex((row) => row.course === parsed.course && row.section === parsed.section);
-	if (index >= 0) {
-		selectRow(index);
-	} else {
-		selectRow(0);
-	}
-} else {
-	selectRow(0);
-}
+renderPbRows();
