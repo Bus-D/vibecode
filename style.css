@@ -54,7 +54,7 @@ body {
 	border: 0;
 	background: transparent;
 	color: inherit;
-	cursor: pointer;
+	/* cursor: pointer; */
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
@@ -64,9 +64,9 @@ body {
 	transition: background-color 0.18s ease;
 }
 
-.icon-button:hover {
+/* .icon-button:hover {
 	background-color: rgba(255, 255, 255, 0.18);
-}
+} */
 
 .welcome {
 	font-size: 1rem;
