@@ -71,12 +71,6 @@ const state = {
 			type: "mentorship",
 			locked: false,
 			position: 3
-		},
-		{
-			id: "calendar-1",
-			type: "calendar",
-			locked: false,
-			position: 4
 		}
 	]
 };
@@ -300,7 +294,7 @@ function renderWidgetBody(type, isFixed) {
 				</div>
 			</div>
 		</div>
-		${isFixed ? "" : "<div class='card-footer'><button class='mini-pill'>See Student List</button></div>"}`
+		${isFixed ? "" : "<div class='card-footer'><button class='mini-course-btn'>See Student List</button></div>"}`
 	}
 
 	if (type === "goals") {
@@ -331,7 +325,7 @@ function renderWidgetBody(type, isFixed) {
 				</div>
 			</div>
 
-			${isFixed ? "" : "<div class='card-footer'><button class='mini-pill'>Update</button></div>"}
+			${isFixed ? "" : "<div class='card-footer'><button class='mini-course-btn'>Update</button></div>"}
 		`;
 	}
 
@@ -343,7 +337,7 @@ function renderWidgetBody(type, isFixed) {
 		return `
 			<p class="widget-copy-tight">ENGL 150, ENGL 160, ENGL 301 active this term.</p>
 			<p class="widget-subcopy">Average engagement: 84% | Developing discipleship score: 4.1</p>
-			${isFixed ? "" : "<div class='card-footer'><button class='mini-pill'>Details</button></div>"}
+			${isFixed ? "" : "<div class='card-footer'><button class='mini-course-btn'>Details</button></div>"}
 		`;
 	}
 
@@ -359,7 +353,7 @@ function renderFixedWidgets() {
 			const footer =
 				widget.type === "courseOverview"
 					? ""
-					: "<div class=\"card-footer\"><button class=\"mini-pill\">Details</button></div>";
+					: "<div class=\"card-footer\"><button class=\"mini-course-btn\">Details</button></div>";
 			return `
 				<article class="card fixed ${fixedClass}">
 					<h2 class="widget-title">${spec.title}</h2>
@@ -579,6 +573,45 @@ function renderHeader() {
 	welcomeText.textContent = `Welcome, ${state.user.name}`;
 	helloText.textContent = `Hello ${state.user.name}`;
 }
+
+const resetWidgets = [
+	{ id: "goals", type: "goals", locked: true, position: 0 },
+	{ id: "course-overview", type: "courseOverview", locked: true, position: 1 },
+	{ id: "resources-1", type: "resources", locked: false, position: 2 },
+	{ id: "mentorship-1", type: "mentorship", locked: false, position: 3 }
+];
+
+const menuPopout = document.getElementById('menuPopout');
+const hamburgerBtn = document.querySelector('.icon-button[aria-label="Open menu"]');
+const resetMenuBtn = document.querySelector('.reset-in-menu');
+
+hamburgerBtn.addEventListener('click', () => {
+	const isOpen = menuPopout.classList.contains('show');
+	if (isOpen) {
+		menuPopout.classList.remove('show');
+		menuPopout.setAttribute('aria-hidden', 'true');
+	} else {
+		menuPopout.classList.add('show');
+		menuPopout.setAttribute('aria-hidden', 'false');
+	}
+});
+
+resetMenuBtn.addEventListener('click', () => {
+	state.widgets = JSON.parse(JSON.stringify(resetWidgets));
+	normalizePositions();
+	menuPopout.classList.remove('show');
+	menuPopout.setAttribute('aria-hidden', 'true');
+	render();
+});
+
+document.addEventListener('click', (event) => {
+	if (!event.target.closest('.menu-popout') && !event.target.closest('[aria-label="Open menu"]')) {
+		if (menuPopout.classList.contains('show')) {
+			menuPopout.classList.remove('show');
+			menuPopout.setAttribute('aria-hidden', 'true');
+		}
+	}
+});
 
 function render() {
 	renderHeader();
